@@ -1,17 +1,17 @@
-import React, { ReactElement } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { useTranslation } from "react-i18next";
-import { Outlet, useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
+import { useTranslation } from "../services/translate";
 
 function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const handleRedirection = (path: string) => (): void => {
+  const handleRedirection = (path: string) => () => {
     navigate(`/${path}`);
   };
 
@@ -86,12 +86,12 @@ function Layout() {
   );
 }
 
-const Index = (): ReactElement => {
+export function Index() {
   return (
     <>
       <Layout />
     </>
   );
-};
+}
 
 export default Index;

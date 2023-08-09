@@ -5,7 +5,6 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import en from "../assets/locales/en/translations.json";
 import fr from "../assets/locales/fr/translations.json";
-import { ChildrenProps } from "../types/types";
 
 const i18n = i18next.createInstance();
 
@@ -23,7 +22,7 @@ i18n
     },
   });
 
-export function Translate({ children }: ChildrenProps) {
+export function Translate({ children }: any) {
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 }
 

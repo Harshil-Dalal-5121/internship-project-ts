@@ -1,6 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { ChildrenProps } from "../types/types";
+import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material/styles";
 
 const axelor = {
   colors: {
@@ -11,6 +10,18 @@ const axelor = {
     white: "rgba(255, 255, 255)",
   },
 };
+
+interface CustomThemeOptions extends ThemeOptions {
+  axelor?: {
+    colors: {
+      blue: string;
+      grey: string;
+      green: string;
+      lightGreen: string;
+      white: string;
+    };
+  };
+}
 
 const theme = createTheme({
   palette: {
@@ -23,10 +34,10 @@ const theme = createTheme({
       contrastText: axelor.colors.white,
     },
   },
-  ...axelor,
-});
+  axelor,
+} as CustomThemeOptions);
 
-export function Theme({ children }: ChildrenProps) {
+export function Theme({ children }: any) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

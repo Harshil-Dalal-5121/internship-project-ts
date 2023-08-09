@@ -1,10 +1,11 @@
 import React from "react";
-import Theme from "./services/theme";
-import Translate from "./services/translate";
-import { RouterProvider } from "react-router";
-import { router } from "./router";
+import { RouterProvider } from "react-router-dom";
 
-const Root = () => {
+import router from "./router";
+import Translate from "./services/translate";
+import Theme from "./services/theme";
+
+function Root() {
   return (
     <Theme>
       <Translate>
@@ -12,6 +13,6 @@ const Root = () => {
       </Translate>
     </Theme>
   );
-};
+}
 
 export default Root;
